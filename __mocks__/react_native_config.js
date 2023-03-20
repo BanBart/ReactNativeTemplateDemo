@@ -1,0 +1,4 @@
+export default {
+  APP_ENVIRONMENT: 'TEST',
+  MMKV_STORAGE_ENCRYPTION_KEY: '',
+}

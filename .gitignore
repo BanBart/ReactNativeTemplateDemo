@@ -62,3 +62,9 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# react-native-config env
+.env
+.env.dev
+.env.staging
+.env.production
