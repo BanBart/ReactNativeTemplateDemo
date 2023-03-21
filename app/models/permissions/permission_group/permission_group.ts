@@ -1,4 +1,4 @@
-import { types, flow, getRoot } from 'mobx-state-tree'
+import { types, flow } from 'mobx-state-tree'
 import {
   PermissionStatus,
   Permission as TPermission,
@@ -11,8 +11,6 @@ import { forOwn } from 'lodash'
 import { Permission } from '@models/permissions/permission/permission'
 import { PermissionGroupEnum } from '@models/permissions/permission_group/permission_group.types'
 import { IPermission } from '@models/permissions/permission/permission.types'
-import { IDeviceServiceSettings } from '@models/permissions/device_service_settings/device_service_settings.types'
-import { IAppStore } from '@stores/app_store/app_store.types'
 
 const PermissionGroup = types
   .model('PermissionGroup', {
@@ -59,14 +57,14 @@ const PermissionGroup = types
 
         return self.id
       },
-      get deviceServicesSettings(): IDeviceServiceSettings | undefined {
-        if (self.isLocationPermissionGroup)
-          return getRoot<IAppStore>(self).deviceServicesSettingsStore.locationServiceSettings
-
-        if (self.isBlePermissionGroup) return getRoot<IAppStore>(self).deviceServicesSettingsStore.bleServiceSettings
-
-        return undefined
-      },
+      // get deviceServicesSettings(): IDeviceServiceSettings | undefined {
+      //   if (self.isLocationPermissionGroup)
+      //     return getRoot<IAppStore>(self).deviceServicesSettingsStore.locationServiceSettings
+      //
+      //   if (self.isBlePermissionGroup) return getRoot<IAppStore>(self).deviceServicesSettingsStore.bleServiceSettings
+      //
+      //   return undefined
+      // },
     }
   })
   .actions((self) => {
@@ -85,10 +83,9 @@ const PermissionGroup = types
   })
   .actions((self) => {
     return {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       requestDeviceServicesSettings: flow(function* requestDeviceServicesSettings() {
-        yield self.deviceServicesSettings?.request()
+        // TODO
+        // yield self.deviceServicesSettings?.request()
       }),
     }
   })

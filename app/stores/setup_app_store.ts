@@ -8,7 +8,7 @@ import { mstMmkvStorage } from '@services/mst_mmkv_storage/mst_mmkv_storage'
 
 const pickStoreKeys: string[] = []
 
-const STORAGE_KEY = 'MST_APP_STORE-v3.1.0`'
+const STORAGE_KEY = 'MST_APP_STORE'
 
 const setupAppStore = async (): Promise<IAppStore> => {
   let appStore: IAppStore
