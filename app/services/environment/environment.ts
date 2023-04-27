@@ -23,7 +23,7 @@ class Environment {
 
   // eslint-disable-next-line @typescript-eslint/require-await
   public async setup(): Promise<void> {
-    if (__DEV__) this.ensureEnvironmentVariablesExists()
+    // if (__DEV__) this.ensureEnvironmentVariablesExists()
   }
 
   private ensureEnvironmentVariablesExists(): void {
